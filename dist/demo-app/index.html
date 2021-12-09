@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <title>DemoApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="module">
+    var playerList = document.getElementById('playerList');
+    var tableHeader = document.getElementById('tableHeader');
+    import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js";
+    const socket = io("https://mst-full-stack-dev-test.herokuapp.com/");
+    socket.on('data-update', function(data) {
+      let playerValues = Object.values(data);
+      let playerRow = playerList.insertRow(-1);
+      playerValues.forEach(element => {
+        let playerColumn = playerRow.insertCell(-1);
+        playerColumn.innerHTML = String(element);
+      });
+    });
+  </script>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    table {
+      border-collapse: collapse;
+    }
+  </style>
+<link rel="stylesheet" href="styles.ef46db3751d8e999.css"></head>
+<body>
+  <table id="playerList">
+    <tbody><tr id="tableHeader">
+      <td>MSTID</td><td>Match</td><td>First</td><td>Last</td><td>Nationality</td><td>SOD</td><td>Score</td><td>Today</td><td>Hole1Strokes</td><td>Hole1STP</td><td>Hole2Strokes</td><td>Hole2STP</td><td>Hole3Strokes</td><td>Hole3STP</td><td>Hole4Strokes</td><td>Hole4STP</td><td>Hole5Strokes</td><td>Hole5STP</td><td>Hole6Strokes</td><td>Hole6STP</td><td>Hole7Strokes</td><td>Hole7STP</td><td>Hole8Strokes</td><td>Hole8STP</td><td>Hole9Strokes</td><td>Hole9STP</td><td>OutStrokes</td><td>OutSTP</td><td>Hole10Strokes</td><td>Hole10STP</td><td>Hole11Strokes</td><td>Hole11STP</td><td>Hole12Strokes</td><td>Hole12STP</td><td>Hole13Strokes</td><td>Hole13STP</td><td>Hole14Strokes</td><td>Hole14STP</td><td>Hole15Strokes</td><td>Hole15STP</td><td>Hole16Strokes</td><td>Hole16STP</td><td>Hole17Strokes</td><td>Hole17STP</td><td>Hole18Strokes</td><td>Hole18STP</td><td>InStrokes</td><td>InSTP</td><td>TotalStrokes</td><td>TotalSTP</td><td>tournamentID</td><td>round</td><td>orderInMatch</td><td>lastUpdated</td><td>status</td><td>leaderboardID</td><td>teeStart</td><td>teeTime</td><td>holesPlayed</td><td>course</td><td>matchID</td><td>Amature</td><td>isTeam</td><td>CalculatedRankInteger</td><td>position</td><td>UniquePosition</td><td>TVName</td><td>Eastern</td><td>Handicap</td><td>SortPriority</td><td>Sex</td>
+    </tr>
+  </tbody></table>
+  <app-root></app-root>
+<script src="runtime.c5a193f1d1dc673b.js" type="module"></script><script src="polyfills.f26fd5f26422611d.js" type="module"></script><script src="main.78c25eb52201aa12.js" type="module"></script>
+
+</body></html>
